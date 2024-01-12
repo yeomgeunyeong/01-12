@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>function call</h1>
+    <div id="write"></div>
+
+    <script lang="java">
+
+        // var time=function maA(a,b){return a*b}
+        // var x=time(5,3);
+
+        // function maA(y){return y*y}
+        // maA(3)
+
+        const fun_A=new Function("a","b","return a*b");
+        var x = fun_A(5,3);
+        console.log(x);
+
+
+        // 자기호출 함수
+        (function(){
+            // document.getElementById("write").innerHTML="안녕하세요"
+            document.querySelector("#write").innerHTML="안녕하세요"
+        })();
+
+        
+        function fun_B(a,b,c){
+            return arguments.length;
+        }
+        console.log(fun_B(5,6,7))
+
+        function fun_C(a,b){
+            return a*b;
+        }
+        console.log(fun_C.toString()) //함수가 문자화 되어 확인됨
+
+
+
+        //화살표 함수
+        // const aaa=function(x,y){
+
+        // }
+        const aaa=(x,y)=>x*y;
+        const bbb=(x,y)=>{return x*y};
+
+    </script>
+</body>
+</html>

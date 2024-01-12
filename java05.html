@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="print"></div>
+    
+    <script lang="java">
+
+        function findMax(){
+            let max = -Infinity;
+            console.log(max)
+
+            for(var i=0;i<arguments.length;i++){
+                if(arguments[i]>max){
+                    max=arguments[i];
+                }
+            }
+
+            return max
+
+        }
+
+        document.querySelector(".print").innerHTML=findMax(-4,-6,-3);
+
+
+
+
+        function sumAll(){
+            let sum=0;
+
+            for(var i=0;i<arguments.length;i++){
+                sum+=arguments[i];
+                // sum=sum+arguments[i];
+            }
+        }
+
+        document.querySelector(".print").innerHTML=findMax(14,200,588,600,800,3,15);
+    </script>
+</body>
+</html>

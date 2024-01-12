@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div id="demo"></div>
+
+    <script lang="java">
+
+        function myA(a,b){
+            if(b===undefined){
+                b=2;
+            }
+            return a*b;
+        }
+        document.getElementById("demo").innerText=myA(5)
+       
+
+        function myB(a,b=10){
+            return a*b;
+        }
+        console.log(myB(5));
+
+
+        function sum(...arge){
+            let sum = 0;
+            for(let ind of arge) sum +=ind;
+            return sum;
+        }
+        
+        let x=sum(4,9,5,10,85,90,77)
+        console.log(x);
+
+    </script>
+</body>
+</html>
