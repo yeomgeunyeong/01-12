@@ -9,6 +9,7 @@
 <body>
     <h1>javascript function</h1>
     <p class="demo"></p>
+    <p class="demo1"></p>
 
     <script lang="java">
 
@@ -18,9 +19,27 @@
 
         var res=my1(5,3);
         document.querySelector(".demo").innerText=res;
-
+        //innerHTML로 적어도 동일하게 나타남 
      
 
+        // var a=10;
+        // a=5;
+        // var a=11; O
+
+        // let a=10;
+        // a=5;
+        // let a=11; X
+
+        // const a=10;
+        // a=5; X
+        // const a=11; X
+
+
+        let x=myA(4,3);
+        document.querySelector(".demo1").innerHTML=x;
+        function myA(a,b){
+            return a*b+10;
+        }
     </script>
 </body>
 </html>
