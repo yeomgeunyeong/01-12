@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <h2>자바스크립트 함수</h2>
+
+    <form action="abc.php" name="myform" onsubmit="return call_F()" method="post">
+        이름 :
+        <input type="text" name="fname">
+        <input type="submit" value="submit">
+    </form>
+
+    <script lang="java">
+
+        function call_F(){
+            let x=document.forms["myform"]["fname"].value;
+            
+            if(x==""){
+                alert("이름을 입력하세요");
+                return false;
+            }
+            console.log(x);
+        }
+
+    </script> -->
+
+
+    <!-- <h2>자바스크립트 함수 1~10까지 입력받기</h2>
+    <form action="#" onsubmit="return myfunction()" method="post">
+        <input type="text" id="num">
+        <input type="submit" value="submit">
+    </form>
+    <div id="demo"></div>
+
+    <script lang="java">
+        function myfunction(){
+            let x = document.getElementById("num").value;
+            if(x>=1 && x<=10){
+                text="입력 OK";
+            }else{
+                text="입력 False";
+            }
+
+            document.getElementById("demo").innerHTML=text;
+        }
+    </script> -->
+
+    
+
+
+    <input type="text" id="test">
+    <!-- <button onclick="myF()">submit</button> -->
+    <button ondbclick="myF()">submit</button> <!-- ondbclick 더블클릭 -->
+    <div id="demo"></div>
+
+    <script lang="java">
+        function myF(){
+            let x=document.getElementById("test").value;
+
+            let text;
+
+            if(isNaN(x) || x < 1 || x < 10){
+                text="오류";
+            }else{
+                text="OK";
+            }
+            document.getElementById("demo").innerHTML=text;
+        }
+    </script>
+</body>
+</html>

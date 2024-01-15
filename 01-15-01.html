@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="demo">123</p>
+    <span class="s_1">456</span>
+    <p class="test">789</p>
+
+
+
+    <script lang="java">
+        
+        const g_id=document.getElementById("demo");
+        console.log(g_id);
+        g_id.innerHTML="안녕하세요";
+
+
+        const ele=document.getElementsByTagName("span");
+        console.log(ele);
+
+        // ele.attribute()="새로운 값"
+        // var c_ele=ele.getAttribute("class")
+        // ele.setAttribute("class", "on")
+        // ele.style.color=
+        
+
+        var ele_test=document.getElementsByClassName("test");
+        console.log(ele_test);
+
+
+        // document.createElement("div")
+        // document.removeChild("div")
+        // document.appendChild("div")
+        // document.replaceChild("div")
+        // document.write("text")
+
+
+        
+    </script>
+</body>
+</html>
