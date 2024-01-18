@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h3>기간 조회하기</h3>
+
+    <form action="#">
+        시작 날짜 : <input type="date" class="datepic" id="startDate"> <br><br>
+        종료 날짜 : <input type="date" class="datepic" id="endDate"> <br><br>
+
+        <div>
+            <button value="1" name="f_date">일주일</button>
+            <button value="2" name="f_date">3개월</button>
+            <button value="3" name="f_date">6개월</button>
+            <button value="4" name="f_date">1년</button>
+            <button value="5" name="f_date">날수차이</button>
+        </div>
+
+        <div id="demo"></div>
+    </form>
+
+
+
+
+
+
+    <script lang="java">
+
+        document.getElementsByName("f_date").forEach(e =>{
+            e.addEventListener("click", function(){
+                let S_date=document.getElementById("startDate").value;
+                let E_date=document.getElementById("endDate").value;
+
+                console.log(S_date); // 2024-01-17 
+                console.log(E_date);
+
+                console.log(typeof(S_date)); // string(문자) 2024-01-17
+                console.log(typeof(E_date));
+
+                var date_s=new Date(S_date); //날짜로 변환
+                console.log(date_s);
+
+
+                var year=date_s.getFullYear();
+                var month=date_s.getMonth()+1;
+                var day=date_s.getDate();
+
+
+
+                var date_e=new Date(E_date);
+                console.log(date_e);
+
+
+                switch (this.value) {
+                    case "1":
+                        console.log("일주일");
+                        newDate=new Date(year, month, day+7);
+                        console.log(newDate);
+                        n_newDate=newDate.getFullYear()+"년"+newDate.getMonth()+"월"+newDate.getDate()+"일";
+                        console.log(n_newDate);
+                        break;
+                    case "2":
+                        console.log("3개월");
+                        newDate=new Date(year, month+3, day);
+                        console.log(newDate);
+                        n_newDate=newDate.getFullYear()+"년"+newDate.getMonth()+"월"+newDate.getDate()+"일";
+                        break;
+                    case "3":
+                        console.log("6개월");
+                        newDate=new Date(year, month+6, day);
+                        console.log(newDate);
+                        n_newDate=newDate.getFullYear()+"년"+newDate.getMonth()+"월"+newDate.getDate()+"일";
+                        break;
+                    case "4":
+                        console.log("1년");
+                        newDate=new Date(year+1, month, day);
+                        console.log(newDate);
+                        n_newDate=newDate.getFullYear()+"년"+newDate.getMonth()+"월"+newDate.getDate()+"일";
+                        break;
+                    case "5":
+                        console.log("날수차이");
+                        dddd=date_e-date_s;
+                        console.log(dddd);
+                        n_dddd=dddd/86400000; //86400000=1일
+                        n_newDate=n_dddd+"일";
+                        break;
+                    }//switch
+
+                    document.getElementById("demo").innerHTML=n_newDate;
+            })//click
+        })//forEach
+
+
+    </script>
+</body>
+</html>

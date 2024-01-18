@@ -1,0 +1,332 @@
+@charset "utf-8";
+
+@import url('https://fonts.googleapis.com/css2?family=MuseoModerno:ital,wght@0,100;0,400;1,400&display=swap');
+
+
+*{margin: 0;padding: 0;box-sizing: border-box;}
+
+html{
+    font-size: 10px;
+}
+
+
+/* 이름은 내가 만드는 것, 지정해두면 var로 가져올 수 있음 */
+:root{
+    --primary-color:#e53935;
+    --shadow-color:#0e0e0e;
+    --clock-color:#212121;
+
+    /* animation time  */
+    --s-animate-time:10s;
+    --m-animate-time:60s;
+    --h-animate-time:20s;
+
+
+    /* real time animation */
+    --s-rotate-time:60s;
+    --m-rotate-time:3600s;
+    --h-rotate-time:43200s;
+
+
+    /* rotate from */
+    --s-rotate-from:0deg;
+    --m-rotate-from:0deg;
+    --h-rotate-from:0deg;
+    /* rotate to */
+    --s-rotate-to:0deg;
+    --m-rotate-to:0deg;
+    --h-rotate-to:0deg;
+}
+
+body{
+    /* background-color: var(--primary-color); */
+    min-height: 100vh;
+    font-family: 'MuseoModerno', sans-serif;
+    font-weight: 500;
+    font-size: 1.4rem;
+    /* color: var(--primary-color);/ */
+}
+
+section{
+    /* background-color: var(--color-color); */
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10rem;
+    position: relative;
+}
+
+.clock, 
+.clock_top, 
+.clock_center, 
+.hours_pointer{
+    border-radius: 50%;
+    /* border: 1px solid white; */
+}
+
+.clock{
+    width: 45rem;
+    height: 45rem;
+    min-width: 45rem;
+    min-height: 45rem;
+    padding: 2rem;
+    background-color: var(--clock-color);
+    box-shadow: 1rem 0 5rem var(--shadow-color);
+    -webkit-box-shadow: 1rem 0 5rem var(--shadow-color);
+    -moz-box-shadow: 1rem 0 5rem var(--shadow-color);
+    position: relative;
+}
+
+.clock_center{
+    width: 100%;
+    height: 100%;
+    background-color: var(--primary-color);
+    box-shadow: 1.5rem 0 1rem var(--shadow-color);
+    display: grid;
+    grid-template-rows: repeat(7, 1fr);
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-areas: 
+    ". . . n12 . . ."
+    ". . n11 . n1 . ."
+    ". n10 . . . n2 ."
+    "n9 . . . . . n3"
+    ". n8 . . . n4 ."
+    ". . n7 . n5 . ."
+    ". . . n6 . . ." ;
+    border: 1px solid white;
+    /* position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); */
+}
+
+.number{
+    font-size: 3.2rem;
+    color: var(--clock-color);
+    line-height: 1;
+    align-self: center;
+    justify-self: center;
+}
+
+.num_1{
+    grid-area: n1;
+    justify-self: end;
+    align-self: start;
+}
+
+.num_2{
+    grid-area: n2;
+    justify-self: end;
+    align-self: start;
+}
+
+.num_3{
+    grid-area: n3;
+    justify-self: start;
+}
+
+.num_4{grid-area: n4;
+    justify-self: end;
+    align-self: end;}
+
+.num_5{grid-area: n5;
+    justify-self: end;
+    align-self: end;}
+
+.num_6{grid-area: n6;
+align-self: start;}
+
+.num_7{grid-area: n7;
+    justify-self: start;
+    align-self: end;}
+
+.num_8{grid-area: n8;
+    justify-self: start;
+    align-self: end;}
+
+.num_9{grid-area: n9;
+    justify-self: end;
+    align-self: end;
+}
+
+.num_10{grid-area: n10;
+    justify-self: start;
+    align-self: start;
+}
+
+.num_11{grid-area: n11;
+    justify-self: start;
+    align-self: start;
+}
+
+.num_12{grid-area: n12;
+    align-self: end;
+}
+
+.clock_top, 
+.hours_container, 
+.hours_pointer{
+    width: 100%;
+    height: 100%;
+}
+
+.clock_top{
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.hours_container{
+    position: relative;
+    z-index: 1;
+    filter: drop-shadow(0.2rem 0 0.5rem var(--shadow-color));
+}
+
+.hours_pointer{
+    background-color: var(--clock-color);
+    /* clip-path: circle(50% at 50% 50%); */
+    clip-path: polygon(
+        -10% -10%,
+        32% -10%,
+        50% 50%,
+        70% -10%,
+        110% -10%,
+        110% 110%,
+        -10% 110%);
+}
+
+.sec_min_container{
+    height: 3rem;
+    width: 3rem;
+    background-color: var(--clock-color);
+    box-shadow: 0 0.1rem 1rem var(--shadow-color);
+    border-radius: 50%;
+    position: absolute;
+    z-index: 2;
+}
+
+.min_container, 
+.sec_container{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sec_pointer{
+    position: absolute;
+    bottom: -4rem;
+    width: 0.2rem;
+    height: 22rem;
+    background-color: var(--primary-color);
+    box-shadow: 0 0 1rem var(--shadow-color);
+    border-radius: 0.2rem;
+    z-index: 0;
+}
+
+.sec_container::before{
+    content: "";
+    position: absolute;
+    height: 0.8rem;
+    width: 0.8rem;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    z-index: 2;
+}
+
+.sec_container::after{
+    content: "";
+    position: absolute;
+    height: 1.2rem;
+    width: 1.2rem;
+    background-color: white;
+    border-radius: 50%;
+    border: 0.2rem solid var(--primary-color);
+    z-index: 1; 
+}
+
+.min_pointer{
+    position: absolute;
+    height: 14rem;
+    width: 0.2rem;
+    background-color: white;
+    border-radius: 0.15rem;
+    z-index: 0;
+    box-shadow: 0.5rem 0.1rem 0.8rem var(--shadow-color);
+    bottom: -1.5rem;
+}
+
+
+
+
+
+
+
+/* animation */
+.animation .sec_container{
+    animation: animate-seconds var(--s-animate-time) infinite linear ;
+}
+
+@keyframes animate-seconds {
+    0%{transform: rotateZ(0deg);}
+    /* 90%{transform: rotateZ(360deg);} */
+    100%{transform: rotateZ(360deg);}
+}
+
+.animation .min_container{
+    animation: animate-minutes var(--m-animate-time) infinite linear ;
+}
+
+.animation .hours_container{
+    animation: animate-minutes var(--h-animate-time) infinite linear ;
+}
+
+@keyframes animate-minutes {
+    to{transform: rotateZ(360deg);}
+}
+
+
+
+
+
+
+
+
+
+/* working animation */
+.working .sec_container{
+    transform: rotateZ(var(--s-rotate-from));
+    animation: rotate-seconds var(--s-rotate-time) infinite linear;
+}
+
+@keyframes rotate-seconds {
+    from{transform: rotateZ(var(--s-rotate-from));}
+    to{transform: rotateZ(var(--s-rotate-to));}
+}
+
+.working .min_container{
+    transform: rotateZ(var(--m-rotate-from));
+    animation: rotate-minutes var(--m-rotate-time) infinite linear;
+}
+
+@keyframes rotate-minutes {
+    from{transform: rotateZ(var(--m-rotate-from));}
+    to{transform: rotateZ(var(--m-rotate-to));}
+}
+
+.working .hours_container{
+    transform: rotateZ(var(--h-rotate-from));
+    animation: rotate-hours var(--h-rotate-time) infinite linear;
+}
+
+@keyframes rotate-hours {
+    from{transform: rotateZ(var(--h-rotate-from));}
+    to{transform: rotateZ(var(--h-rotate-to));}
+}
