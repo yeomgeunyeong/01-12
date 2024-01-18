@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <button class="btn">네이버 이동</button>
+
+    <script lang="java">
+        // var output="";
+        // for(var key in location){
+        //     output += "●"+key+":"+location[key]+"\n";
+        // }
+        // alert(output);
+
+        // location="http://www.naver.com";
+        // location.href="http://www.naver.com";
+        
+        // location.assign=("http://www.naver.com");
+        // location.replace=("http://www.naver.com");
+
+        let button=document.querySelector(".btn");
+        // button.addEventListener("click", function(){});
+        button.addEventListener("click", open1);
+
+        function open1(){
+            // location.href="http://www.naver.com";
+            window.open("http://www.naver.com","","width=600, height=300");
+        }
+    </script>
+</body>
+</html>

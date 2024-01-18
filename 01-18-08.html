@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script lang="java">
+        var useragent=navigator.userAgent;
+        alert(useragent);
+
+        var smartPhones=["iphone", "ipad", "android"];
+
+        for(var i in smartPhones){
+            if(useragent.toLowerCase().match(new RegExp(smartPhones[i]))){
+                alert("스마트폰페이지로 이동합니다");
+                location="http://m.naver.com";
+            }//if
+        }//for
+    </script>
+</body>
+</html>
